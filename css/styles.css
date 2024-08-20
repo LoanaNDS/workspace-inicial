@@ -188,3 +188,30 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.formularioLogin{
+  font-family:itim;
+  font-size: 20px;
+  width: 400px;
+  height: 340px;
+  background-color: #FEB3C7;
+  border-radius: 15px;
+  padding: 60px 60px;
+  margin: auto;
+  box-shadow: 7px 13px 37px;
+}
+
+#botonIngresar{
+  color: aliceblue;
+  background-color:#D88FBD;
+  font-family: itim;
+  font-size: 25px;
+margin-left: 544px;
+margin-top: 45px;
+border-radius: 15px;
+padding: 10px 50px ;
+
+}
+#titulodelogin{
+  font-family: itim;
+  font-size: 40px;
+}

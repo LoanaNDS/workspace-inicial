@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400..700&family=Itim&family=Playwrite+AR:wght@100..400&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: rgb(248, 249, 250);
@@ -19,9 +20,16 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <h3 id=titulodelogin style="text-align: center;">Login</h3><br><br>
+      <div class="formularioLogin">
+        <form method="post"class="login">
+          <label for="usuario" class="form-label">Usuario:</label><br>
+          <input type="text" class="form-control" id="usuario" placeholder="Ingrese su usuario"><br>
+          <label for="contrasena" class="form-label">Contraseña:</label><br>
+          <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña"><br>
+        </form>
       </div>
+      <button type="submit" class="btn btn alert-success" id="botonIngresar">Ingresar</button>
     </div>
   </main>
   <footer class="text-muted">
