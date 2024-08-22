@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (usuario === '' || contrasena === '') {
         alert('Por favor, complete todos los campos.');
       } else {
-        window.location.href = 'portada.html';
+        window.location.href = 'index.html';
       }
     });
   });
