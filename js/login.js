@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Por favor, complete todos los campos.');
       } else {
         window.location.href = 'index.html';
+        localStorage.setItem("user",usuario)
       }
     });
   });
