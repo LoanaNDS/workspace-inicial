@@ -11,6 +11,12 @@
 
 nav a {
   text-decoration: none;
+  background-color: #50D094;
+}
+
+.navbar{
+  background-color: #50D094;
+  height: 100px;
 }
 
 .bd-placeholder-img {
@@ -58,7 +64,7 @@ nav a {
 
 .jumbotron .container {
   max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(55, 244, 140, 0.5);
   border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
@@ -214,4 +220,13 @@ padding: 10px 50px ;
 #titulodelogin{
   font-family: itim;
   font-size: 40px;
+}
+
+.navbarNav{
+  background-color: #50D094;
+}
+
+.nav-link{
+  color: white;
+  padding-top: 20px;
 }
