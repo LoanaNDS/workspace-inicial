@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
        data.products.forEach(element => {
         const cardContent = 
         `
-        <div class="card mb-4 box-shadow">
+        <div class= "row">
+        <div class="card mb-4 box-shadow col-ms-6">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src=${element.image} data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
                 <div class="card-body">
                 <h5 class="card-title"> ${element.name} </h5>
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <small class="text-muted"> Vendidos: ${element.soldCount}  </small>
                   </div>
                 </div>
+              </div>
               </div>
        `
       productListElement.innerHTML += cardContent;
