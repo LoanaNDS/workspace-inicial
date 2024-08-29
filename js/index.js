@@ -16,4 +16,13 @@ document.addEventListener("DOMContentLoaded", function(){
     if (usuarioGuardado==null){
         this.location.href="login.html";
     }
+    var nombreUsuario = localStorage.getItem("user");
+      
+      if (nombreUsuario) {
+        var navbar = document.querySelector(".navbar-nav");
+        var userItem = document.createElement("li");
+        userItem.classList.add("nav-item");
+        userItem.innerHTML = `<a class="nav-link" href="my-profile.html">${nombreUsuario}</a>`;
+        navbar.appendChild(userItem);
+      }
 });
