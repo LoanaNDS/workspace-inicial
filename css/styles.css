@@ -13,9 +13,19 @@ nav a {
   text-decoration: none;
 }
 
-.navbar{
+.navbar {
+  display: flex;
+  align-items: center;
   background-color: #50D094;
-  height: 100px;
+  height:100px;
+}
+
+.search-form {
+  margin: 0 auto; 
+} 
+
+.navbar-toggler-icon{
+background-color: #fff;
 }
 
 .bd-placeholder-img {
@@ -227,14 +237,14 @@ a.custom-card:hover {
   font-size: 40px;
 }
 
-.navbarNav{
-  background-color: #50D094;
-}
-
-.nav-link{
-  color: white;
+/* .nav-link{
+  color: rgb(5, 0, 0);
   padding-top: 20px;
-}
+} */
+
+/* @media (width >= 768px) and (width <= 1000px) {
+  
+} */
 
 .formularioLogin{
   max-width: 400px;

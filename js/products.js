@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         productListElement.innerHTML = '';
   
         //Asumiendo que la estructura del JSON es una lista de productos
-       data.products.forEach(element => {
+        data.products.forEach(element => {
         const cardContent = 
         `
-        <div class= "row">
+        <div class= "row container col-sm-12 col-md-4 col-lg-4">
         <div class="card mb-4 box-shadow col-ms-6">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src=${element.image} data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
                 <div class="card-body">
@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   <p class="card-text"> ${element.description} </p>
                   <p class="card-text"> ${element.currency+element.cost} </p>
                   <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted"> Vendidos: ${element.soldCount}  </small>
+                  <small class="text-muted"> Vendidos: ${element.soldCount}  </small>
                   </div>
                 </div>
               </div>
               </div>
-       `
+        `
       productListElement.innerHTML += cardContent;
 
       });
