@@ -12,17 +12,18 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg p-1 d-flex flex-column">
-    <form class="form-inline my-2 my-lg-0 ">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-    </form>
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <nav class="navbar navbar-expand-lg p-1 d-flex flex-column">
+        <div class="container-fluid">
+        <form class="d-flex search-form" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        </form> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"></span>
-      </button>
+        </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -36,24 +37,25 @@
           </li>
         </ul>
       </div>
-    </div>
+  </div>
   </nav>
 
   <main class="pb-5 container">
 
 
-      <section id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="padding-top: 40px;">
+      <section id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center" style="padding-top: 40px;">
         <!-- Aquí se mostrarán los productos -->
       </section>
     </div>
   </main>
 
-  <footer class="text-muted">
+  <footer class="text-muted col-sm-12 col-md-6 col-lg-4">
     <div class="container">
-      <p class="float-end">
+      <p class="float-end container">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" 
+      target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
 
