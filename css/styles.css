@@ -201,8 +201,12 @@ a.custom-card:hover {
   background-color: #8BE270;
   border-radius: 15px;
   padding: 60px 60px;
-  margin: auto;
+  margin:0 auto;
   box-shadow: 7px 13px 37px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #botonIngresar{
@@ -210,12 +214,14 @@ a.custom-card:hover {
   background-color:#50D094;
   font-family: itim;
   font-size: 25px;
-margin-left: 544px;
-margin-top: 45px;
-border-radius: 15px;
-padding: 10px 50px ;
-
+  margin: 45px auto; 
+  border-radius: 15px;
+  padding: 10px 50px; /* relleno */
+  display: block; /* Asegura que el botón sea un bloque para centrarlo */
+  width: auto; /* El ancho será determinado por el contenido y el padding */
+  text-align: center; /* Centra el texto dentro del botón */
 }
+
 #titulodelogin{
   font-family: itim;
   font-size: 40px;
@@ -228,4 +234,51 @@ padding: 10px 50px ;
 .nav-link{
   color: white;
   padding-top: 20px;
+}
+
+.formularioLogin{
+  max-width: 400px;
+  max-height: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.btn {
+  display: block;
+  width: auto; /* el ancho del botón */
+  max-width: 200px; /* ancho máximo */
+  margin: 10px auto; /* Centra el botón  */
+}
+
+@media (min-width: 1366px) {
+  .formularioLogin {
+    max-height:500px ;
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .formularioLogin {
+    max-height: 70%;
+    max-width: 70%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 376px) {
+  .formularioLogin {
+    width: 80% !important;
+    height: 80% !important;
+    padding: 15px !important;
+    font-size: 0.875rem; 
+  }
+
+  .form-control {
+    font-size: 0.75rem !important; /* tamaño de la fuente en los campos del formulario */
+  }
+
+  #titulodelogin {
+    font-size: 2.5rem; /* Ajusta el tamaño de fuente */
+  }
 }
