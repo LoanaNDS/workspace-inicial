@@ -15,7 +15,6 @@ nav a {
 
 .navbar {
   display: flex;
-  flex-direction: relative !important; 
   align-items: center;
   background-color: #50D094;
   height:100px;
@@ -243,9 +242,9 @@ a.custom-card:hover {
   padding-top: 20px;
 } */
 
-@media (width >= 768px) and (width <= 1000px) {
+/* @media (width >= 768px) and (width <= 1000px) {
   
-}
+} */
 
 .formularioLogin{
   max-width: 400px;
