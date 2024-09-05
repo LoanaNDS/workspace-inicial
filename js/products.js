@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://japceibal.github.io/emercado-api/cats_products/101.json')
+  let idCategoria = localStorage.getItem('catID')
+    
+  fetch("https://japceibal.github.io/emercado-api/cats_products/"+ idCategoria +".json")
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
