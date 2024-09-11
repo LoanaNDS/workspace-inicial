@@ -14,10 +14,10 @@ nav a {
 }
 
 .navbar {
-  display: flex;
   align-items: center;
   background-color: #50D094;
-  height:100px;
+  height: 80px;
+  width: auto;
 }
 
 .search-form {
@@ -237,14 +237,10 @@ a.custom-card:hover {
   font-size: 40px;
 }
 
-/* .nav-link{
+.nav-link{
   color: rgb(5, 0, 0);
-  padding-top: 20px;
-} */
-
-/* @media (width >= 768px) and (width <= 1000px) {
-  
-} */
+  display: block;
+}
 
 .formularioLogin{
   max-width: 400px;
@@ -291,4 +287,18 @@ a.custom-card:hover {
   #titulodelogin {
     font-size: 2.5rem; /* Ajusta el tamaño de fuente */
   }
+}
+.boton {
+border-radius: 15px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+height: 20px;
+width: auto;
+font-size: 0.75rem;
+}
+
+.campoTexto{
+  border-radius: 5px;
+  width: auto;
+  border-color:rgba(29, 28, 28, 0.5) ;
+  box-shadow:rgba(255, 255, 255, 0.5);
 }
