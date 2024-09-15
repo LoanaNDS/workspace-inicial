@@ -302,3 +302,39 @@ font-size: 0.75rem;
   border-color:rgba(29, 28, 28, 0.5) ;
   box-shadow:rgba(255, 255, 255, 0.5);
 }
+
+/* ------------------------------------------------------------------------------- */
+#product-images{
+  max-width: 225px; 
+  margin-left: 140px;
+}
+
+#misimagenes {
+  display: flex; /* Usa Flexbox para alinear las imágenes horizontalmente */
+  white-space: nowrap; /* Evita el salto de línea entre imágenes */
+  padding: 10px;
+}
+
+#misimagenes img:hover {
+  transform: scale(1.1) translateY(10px); /* Agranda la imagen en un 10% y desliza 10px hacia abajo */
+}
+
+
+#infoDeProduct-info {
+  position: absolute; /* Posiciona el div en relación con el body */
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); /* Esta línea se encarga de ajustar la posición para centrar el div */
+  margin-top: 82px;
+  text-align: center; /* Centra el texto dentro del div */
+}
+
+
+#comprar {
+  padding: 10px 20px; 
+  background-color: #50D094; 
+  border: none; 
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
