@@ -111,6 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         getProducts(productosRelevantes);
       });
+         // Buscardor de productos con Filtro
+         const searchInput = document.getElementById("searchInput");
+         searchInput.addEventListener("input", () => {
+           const searchTerm = searchInput.value.toLowerCase();
+           const filteredProducts = data.products.filter((product) => 
+             product.name.toLowerCase().includes(searchTerm) ||
+             product.description.toLowerCase().includes(searchTerm)
+           );
+           getProducts(filteredProducts);
+         });
     })
     .catch((error) => {
       console.error("Hubo un problema con la solicitud Fetch:", error);
