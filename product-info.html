@@ -17,91 +17,78 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item"></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <main>
-      <div class="container-product">
-        <!--  <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>-->
-        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <div id="misimagenes">
-          <div id="product-images"></div>
-        </div>
-        <div id="infoDeProduct-info" class="card-body">
-          <h1 id="product-name" class="card-title"></h1>
-          <p id="product-description" class="card-text"></p>
-          <p class="card-text">Precio:<span id="product-price"></span></p>
-          <p class="card-text">
-            Categoría: <span id="product-category"></span>
-          </p>
-          <p class="card-text">
-            <small class="text-body-secondary">Last updated 3 mins ago</small>
-          </p>
-          <button id="comprar">Comprar</button>
-        </div>
-
-        <br /><br />
-
-        <div class="contenedorOpiniones">
-          <h3>Opiniones:</h3>
-          <div id="contenedorComentario"></div>
-        </div>
-      </div>
-      
-      <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-    </main>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
-          >
-        </p>
-      </div>
-    </footer>
-    <div id="spinner-wrapper">
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+          </li>
+        </ul>
       </div>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/product-info.js"></script>
-  </body>
+  </nav>
+  <main>
+     <div class="container-product">
+    <div id="misimagenes">
+          <div id="product-images" ></div>
+    </div>
+  <div id="infoDeProduct-info" class="card-body">
+    <h1 id="product-name" class="card-title"></h1>
+    <p id="product-description" class="card-text"></p>
+    <p class="card-text">Precio:<span id="product-price"></span></p>
+    <p class="card-text">Categoría: <span id="product-category"></span></p>
+    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    <button id="comprar">Comprar</button>
+  </div>
+  
+  <br /><br />
+
+  <div class="contenedorOpiniones">
+    <h3>Opiniones:</h3>
+    <div id="contenedorComentario"></div>
+  </div>
+</div>
+<!--Carousel con productos relacionados-->
+<section>
+<h3 id="interesar">También te puede interesar:</h3>
+<div class="row row-cols-1 row-cols-md-3 g-8"id="cardsPR">
+<!--aca se van a mostrar los productos relacionados-->
+</div>
+</section>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+</body>
+
 </html>

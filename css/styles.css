@@ -346,3 +346,18 @@ font-size: 0.75rem;
   
 }
 
+
+#cardsPR{
+  display: flex;
+  justify-content: center;
+  padding: 10%;
+  
+}
+#cardsPR :hover{
+  transform: scale(105%) ;
+  
+}
+#interesar{
+  font-family: 'Verdana', serif;
+  text-align: center;
+}

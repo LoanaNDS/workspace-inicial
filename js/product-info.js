@@ -1,12 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const llamarIdProducto = localStorage.getItem("prodID");
-  fetch(
-    "https://japceibal.github.io/emercado-api/products/" +
-      llamarIdProducto +
-      ".json"
-  )
-    .then((response) => {
-      if (!response.ok) {
+function setProductID(id){
+  localStorage.setItem("prodID",id);
+  window.location="product-info.html";
+}
+document.addEventListener("DOMContentLoaded",()=>{
+
+const llamarIdProducto = localStorage.getItem("prodID");
+fetch("https://japceibal.github.io/emercado-api/products/" + llamarIdProducto + ".json")
+.then((response)=>{
+    if (!response.ok) {
         throw new Error("Esto es un error");
       }
       return response.json();
@@ -30,6 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
         imgElement.classList.add("img-thumbnail", "m-2");
         imageContainer.appendChild(imgElement);
       });
+//mostrar los productos relacionados
+const listaDeProdRelacionados = document.getElementById("cardsPR");
+data.relatedProducts.forEach((element) =>{
+   const contenidoDePR = `
+    <div class="col">
+<div class="card bg-dark text-white" onclick="setProductID(${element.id})">
+ <img class="card-img" src=${element.image} alt="Card image">
+ <div class="card-img-overlay">
+   <h5 class="card-title" id="card-titlePR">${element.name}</h5>
+ </div>
+</div>
+   `;
+   listaDeProdRelacionados.innerHTML+= contenidoDePR;
+
+});
     })
     .catch((error) => {
       console.error("Error:", error);
