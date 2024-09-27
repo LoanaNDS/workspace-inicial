@@ -321,10 +321,10 @@ font-size: 0.75rem;
 
 
 #infoDeProduct-info {
-  position: absolute; /* Posiciona el div en relación con el body */
-  top: 50%; 
+  /* position: absolute; /* Posiciona el div en relación con el body */
+  /* top: 50%; 
   left: 50%;
-  transform: translate(-50%, -50%); /* Esta línea se encarga de ajustar la posición para centrar el div */
+  transform: translate(-50%, -50%); */ /* Esta línea se encarga de ajustar la posición para centrar el div */
   margin-top: 82px;
   text-align: center; /* Centra el texto dentro del div */
 }
@@ -338,3 +338,11 @@ font-size: 0.75rem;
   border-radius: 5px;
   font-size: 16px;
 }
+
+.contenedorOpiniones{
+  top: 80%;
+  left: 30%; 
+  padding: 50px;
+  
+}
+
