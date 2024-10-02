@@ -96,3 +96,13 @@ data.relatedProducts.forEach((element) =>{
       alert("Hubo un problema al cargar la información del producto.");
     });
 });
+
+/* Parte de enviar estrellas y comentario */
+
+const ratings = document.querySelectorAll('.star-rating input');
+ratings.forEach(radio => {
+  radio.addEventListener('change', () => {
+    console.log(`Rated: ${radio.value} stars`);
+    // Aquí puedes agregar funcionalidad para enviar la calificación
+  });
+});
