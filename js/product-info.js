@@ -102,7 +102,77 @@ data.relatedProducts.forEach((element) =>{
 const ratings = document.querySelectorAll('.star-rating input');
 ratings.forEach(radio => {
   radio.addEventListener('change', () => {
+    selectedRating = parseInt(radio.value); //Actualizar NUEVO
     console.log(`Rated: ${radio.value} stars`);
     // Aquí puedes agregar funcionalidad para enviar la calificación
   });
 });
+
+// Función para enviar comentario
+
+let selectedRating = 0; 
+
+// Función para guardar el comentario en Local Storage
+function guardarComentario(comentario) {
+  let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+  comentarios.push(comentario);
+  localStorage.setItem('comentarios', JSON.stringify(comentarios));
+}
+
+// Función para mostrar el comentario
+function mostrarComentario(element) {
+  const comentarios = document.getElementById("contenedorComentario");
+  const estrellas = "★".repeat(element.score) + "☆".repeat(5 - element.score);
+  const contenidoComentario = `
+    <div class="contenedorReseñas">
+      <hr>
+      <p><strong>Fecha: </strong> ${element.dateTime}</p>
+      <p><strong>Usuario: </strong> ${element.user}</p>
+      <p>${element.description}</p>
+      <p>${estrellas}</p>
+    </div>
+  `;
+  
+  comentarios.innerHTML += contenidoComentario;
+  console.log("Comentario mostrado:", contenidoComentario);
+}
+
+// Función para enviar comentario
+document.getElementById('botonEnviar').addEventListener('click', () => {
+  const comentario = document.getElementById('review-text').value;
+  const fecha = new Date().toLocaleString(); // Agrega la fecha actual
+  const usuario = localStorage.getItem("user");; // Cambia esto a la lógica de usuario real
+  console.log("Mensaje 1");
+
+  if (comentario && selectedRating > 0) {
+    const nuevoComentario = {
+      dateTime: fecha,
+      user: usuario,
+      description: comentario,
+      score: selectedRating
+    };
+
+    console.log("Mensaje 3", nuevoComentario);
+    guardarComentario(nuevoComentario);
+    mostrarComentario(nuevoComentario);
+
+    // Limpia el textarea y la puntuación seleccionada
+    document.getElementById('review-text').value = '';
+    selectedRating = 0;
+    const ratings = document.querySelectorAll('.star-rating input');
+    ratings.forEach(radio => radio.checked = false);
+  } else {
+    alert('Por favor, escribe un comentario y selecciona una calificación.');
+  }
+});
+
+// Función para cargar comentarios al iniciar
+function cargarComentarios() {
+  const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+  comentarios.forEach(comentario => mostrarComentario(comentario));
+}
+
+// Cargar los comentarios al iniciar
+window.onload = cargarComentarios;
+
+  
