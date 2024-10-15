@@ -306,7 +306,7 @@ font-size: 0.75rem;
 /* ------------------------------------------------------------------------------- */
 #product-images{
   max-width: 225px; 
-  margin-left: 140px;
+  margin-left: 10%;
 }
 
 #misimagenes {
@@ -429,4 +429,28 @@ button#botonEnviar {
 
 button#botonEnviar:hover {
   background-color: #45a049;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode #contenedorComentario {
+  background-color: #1e1e1e; /* Color oscuro para el contenedor */
+}
+
+body.dark-mode .contenedorOpiniones {
+  background-color: #131212; /* Color oscuro para el contenedor */
+}
+
+body.dark-mode .cuadroOpinion {
+  background-color: #1e1e1e; /* Color oscuro para el contenedor */
+}
+
+#Toggle {
+  padding: 10px 25px;
+  font-size: 16px;
+  width: 60px;
+  cursor: pointer;
 }

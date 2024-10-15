@@ -15,7 +15,6 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="/js/NavBar.js"></script>
   </head>
 
 <body>
@@ -37,6 +36,7 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="Interruptor" id="Toggle">🌙</div> <!-- Icono de luna para modo oscuro -->
           </li>
         </ul>
       </div>
@@ -47,6 +47,7 @@
     <div id="misimagenes">
           <div id="product-images" ></div>
     </div>
+
   <div id="infoDeProduct-info" class="card-body">
     <h1 id="product-name" class="card-title"></h1>
     <p id="product-description" class="card-text"></p>
@@ -82,7 +83,7 @@
 
   <div id="contenedor">
   <!-- cuadro de texto para el comentario -->
-  <textarea id="review-text" name="review" placeholder="Mi producto me pareció..."></textarea><br>
+  <textarea id="review-text" name="review" placeholder="Escribe un comentario"></textarea><br>
 <!-- boton de enviar -->
     <button type="submit" id="botonEnviar">Enviar</button>
   </div>
