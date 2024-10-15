@@ -176,3 +176,17 @@ function cargarComentarios() {
 window.onload = cargarComentarios;
 
   
+// ----------------------------------------------------------------------------------------
+
+const Mnoche = document.getElementById('Toggle');
+
+Mnoche.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    // Cambia el texto del botón
+    if (document.body.classList.contains('dark-mode')) {
+        Mnoche.textContent = '☀️';
+    } else {
+        Mnoche.textContent = '🌙';
+    }
+});
