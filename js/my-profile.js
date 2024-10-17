@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', ()=> {
 /* Visulizando email al momento de entrar a Mi Perfil */
   const Email = document.getElementById('email');
-  Email.value = localStorage.getItem('email');
+  Email.value = localStorage.getItem('user');
+
 
 /* Guardando los datos del formulario en Local Storage */
   function guardadoDatos() {
