@@ -24,9 +24,9 @@
     <div class="container">
       <h3 id=titulodelogin style="text-align: center;">Login</h3><br><br>
       <div class="formularioLogin">
-        <form method="post"class="login">
+        <form method="post"class="login needs-validation" novalidate>
           <label for="usuario" class="form-label">Usuario:</label><br>
-          <input type="email" class="form-control" id="usuario" placeholder="Ingrese su usuario"><br>
+          <input type="email" class="form-control" id="usuario" placeholder="Ingrese su email" required><br>
           <label for="contrasena" class="form-label">Contraseña:</label><br>
           <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña"><br>
         </form>
@@ -43,6 +43,7 @@
     </div>
   </footer>
   <script src="js/login.js"></script>
+  
 </body>
 
 </html>
