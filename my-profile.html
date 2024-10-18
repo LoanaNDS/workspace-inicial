@@ -123,11 +123,12 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="foto">Foto de perfil</label>
+                  <label for="foto" class="l-foto-perfil">Foto de perfil</label><br><br>
                   <div class="d-flex align-items-center">
-                    <img src=" " alt="foto-perfil">
-                    <input type="file" class="form-control" id="fotoPerfilInput" accept="image/*">
-                </div>
+                      <img src="https://avatar.iran.liara.run/public/47" alt="foto-perfil" id="imgFotoPerfil" class="foto-perfil"> <!-- Imagen redonda -->
+                      <input type="file" class="form-control ms-3" id="inputFotoPerfil" accept="image/*" onchange="cargarFoto(event)"> <!-- Espacio de separación -->
+                  </div>
+              </div>
 
                 </div>
                 <label class="ui-switch">
@@ -140,7 +141,7 @@
               </div>
               <button type="submit" id="botonCambios" class="btn btn-primary">Guardar cambios</button>
             </form>
-
+            
           </div>
 
           
