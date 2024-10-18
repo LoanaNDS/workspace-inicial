@@ -62,3 +62,19 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 })
 
+///////////////////////////////////////////////////////////////////////////////////////
+// Manejar cambio de foto de perfil
+const inputFotoPerfil = document.getElementById('inputFotoPerfil');
+const imgFotoPerfil = document.getElementById('imgFotoPerfil'); 
+
+inputFotoPerfil.addEventListener('change', function(evento) {
+    const archivoSeleccionado = evento.target.files[0];
+    if (archivoSeleccionado) {
+        const lectorArchivo = new FileReader(); 
+        lectorArchivo.onload = function(evento) {
+            imgFotoPerfil.src = evento.target.result; // Establecer la fuente de la imagen
+            localStorage.setItem('fotoPerfil', evento.target.result); 
+        };
+        lectorArchivo.readAsDataURL(archivoSeleccionado);
+    }
+});

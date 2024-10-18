@@ -542,3 +542,18 @@ body.dark-mode .cuadroOpinion {
   width: 0;
   height: 0;
 }
+
+
+
+.foto-perfil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.l-foto-perfil{
+padding-left: 15px;
+}
