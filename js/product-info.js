@@ -89,7 +89,8 @@ data.relatedProducts.forEach((element) =>{
       </div>
       `;
         comentarios.innerHTML += contenidoComentario;
-      });
+      }); 
+
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -177,6 +178,34 @@ window.onload = cargarComentarios;
 
   
 // ----------------------------------------------------------------------------------------
+const botonComprar = document.getElementById("comprar");
+
+botonComprar.addEventListener("click", () => {
+  agregaralcarrito();
+
+});
+// Función agregar el producto al carrito y redirigir al carrito el producto seleccionado
+function agregaralcarrito() {
+  window.location = "cart.html";
+  let productoseleccionado = {
+    id: localStorage.getItem("prodID"),
+    name: document.getElementById("product-name").textContent,
+    price: document.getElementById("product-price").textContent
+  };
+  
+  // Si no existe un array de compras en el Local Storage, se crea uno
+  if (!localStorage.getItem('compras')) {
+    const arraycompras = [];
+    localStorage.setItem('compras', JSON.stringify(arraycompras));
+  }
+
+  // Obtener el array de compras almacenado en el Local Storage
+  const storedArray = JSON.parse(localStorage.getItem('compras'));
+  // Se agrega el producto seleccionado al array de compras
+  storedArray.push(productoseleccionado);
+  // Se actualiza el array de compras en el local storage
+  localStorage.setItem('compras', JSON.stringify(storedArray));
+}
 
 const Mnoche = document.getElementById('Toggle');
 
