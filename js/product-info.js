@@ -190,7 +190,9 @@ function agregaralcarrito() {
   let productoseleccionado = {
     id: localStorage.getItem("prodID"),
     name: document.getElementById("product-name").textContent,
-    price: document.getElementById("product-price").textContent
+    price: document.getElementById("product-price").textContent,
+    image: document.getElementById("product-images").children.item(0).src,
+    quantity: 1
   };
   
   // Si no existe un array de compras en el Local Storage, se crea uno

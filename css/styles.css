@@ -557,3 +557,36 @@ body.dark-mode .cuadroOpinion {
 .l-foto-perfil{
 padding-left: 15px;
 }
+#imagenProductoComprado{
+width: 220px;
+height:auto
+}
+#cuantificador{
+  width: 50px;
+}
+#nombresTabla{
+  color: #45a049;
+  font-family: 'Verdana', serif
+}
+.table-responsive{
+  margin-top: 50px;
+  /* margin: 40px; */
+}
+#imagenCarroVacio{
+  width: 500px;
+  height: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
+
+
+}
+#alertaVacio{
+  color: red;
+ font-size: larger;
+
+}
+#checkout{
+  display: flex;
+  justify-content:end;
+  margin-top: 40px;
+}
