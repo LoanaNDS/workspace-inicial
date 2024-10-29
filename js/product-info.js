@@ -203,8 +203,15 @@ function agregaralcarrito() {
 
   // Obtener el array de compras almacenado en el Local Storage
   const storedArray = JSON.parse(localStorage.getItem('compras'));
-  // Se agrega el producto seleccionado al array de compras
+  // Buscar si el producto ya existe en el carrito
+  const productoExistente = storedArray.find(item => item.id===productoseleccionado.id);
+  //si existe, aumentar la cantidad
+  if (productoExistente){
+    productoExistente.quantity++;
+  }else{
+    //si no existe, Se agrega el producto seleccionado al array de compras
   storedArray.push(productoseleccionado);
+  }
   // Se actualiza el array de compras en el local storage
   localStorage.setItem('compras', JSON.stringify(storedArray));
 }
