@@ -557,14 +557,14 @@ body.dark-mode .cuadroOpinion {
 .l-foto-perfil{
 padding-left: 15px;
 }
-#imagenProductoComprado{
+.imagenProductoComprado{
 width: 220px;
 height:auto
 }
-#cuantificador{
+.cuantificador{
   width: 50px;
 }
-#nombresTabla{
+.nombresTabla{
   color: #45a049;
   font-family: 'Verdana', serif
 }
