@@ -90,4 +90,17 @@ function eliminar(posicion){
   cargarproductos();
 }
 
-document.addEventListener("DOMContentLoaded", cargarproductos());
+document.addEventListener("DOMContentLoaded", cargarproductos);
+
+const contador = document.getElementById("contador");
+const cont = document.getElementById("cont");
+
+const comprasGuardadas = JSON.parse(localStorage.getItem("compras")) || [];
+contador.innerHTML = comprasGuardadas.length;
+
+if (comprasGuardadas.length === 0) {
+  contador.style.display = 'none';
+  cont.style.display = 'none';
+}
+
+
