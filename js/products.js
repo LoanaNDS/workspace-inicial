@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="card-body">
         <h5 class="card-title"> ${element.name} </h5>
           <p class="card-text"> ${element.description} </p>
-          <p class="card-text"> ${element.currency + element.cost} </p>
+            <p class="card-text"> ${element.currency} ${element.cost} </p>
           <div class="d-flex justify-content-between align-items-center">
           <small class="text-muted"> Vendidos: ${element.soldCount}  </small>
           </div>
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="card-body">
                 <h5 class="card-title"> ${element.name} </h5>
                   <p class="card-text"> ${element.description} </p>
-                  <p class="card-text"> ${element.currency + element.cost} </p>
+                  <p class="card-text"> ${element.cost} </p>
                   <div class="d-flex justify-content-between align-items-center">
                   <small class="text-muted"> Vendidos: ${
                     element.soldCount
