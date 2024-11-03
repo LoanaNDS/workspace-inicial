@@ -115,6 +115,14 @@ function actualizarSubtotalGeneral() {
          actualizarSubtotalGeneral();
       });
     });
+      // Función para eliminar un producto del carrito
+      window.eliminar = function(posicion) {
+        const comprasGuardadas = JSON.parse(localStorage.getItem("compras"));
+        comprasGuardadas.splice(posicion, 1);
+        localStorage.setItem("compras", JSON.stringify(comprasGuardadas));
+        cargarproductos(); // Recargar los productos para reflejar el cambio
+      };
+      
      // Inicializar el subtotal general al cargar la página
      actualizarSubtotalGeneral();
   }
