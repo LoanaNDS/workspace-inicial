@@ -28,16 +28,22 @@ function cargarproductos() {
           <tbody>
     `;
 
+  
     let contenidoDeCarrito = "";
     comprasGuardadas.forEach((element, index) => {
+
+  // Conversion
+  if (element.currency === 'USD') {
+    element.price = element.price * 42,50
+  }
       contenidoDeCarrito += `
         <tr class="nombresTabla">
           <td><img src="${element.image}" class="img-thumbnail img-fluid imagenProductoComprado">${element.name}</td>
-          <td class="align-middle"> ${element.price}</td>
+          <td class="align-middle"> <span> UYU</span> ${element.price}</td>
           <td class="align-middle">
             <input type="number" min="0" class="cuantificador" id="inputCantidad-${index}" value="${element.quantity}">
           </td>
-          <td class="align-middle" id="subTotal-${index}"> ${element.price * element.quantity}</td>
+          <td class="align-middle" id="subTotal-${index}"> <span> UYU </span> ${element.price * element.quantity}</td>
           <td class="align-middle"><i class="bi bi-trash" type="button" onclick='eliminar(${index})'></i></td>
         </tr>
       `;
@@ -58,23 +64,22 @@ function cargarproductos() {
               <tbody>
                 <tr>
                   <th scope="row">Subtotal:</th>
-                  <td></td>
-                  <td>$</td>
+                  <td></td> 
+                  <td>UYU</td>
                   <td id="subtotalGen" ></td>
-                  
-                  
                 </tr>
                 <tr>
                   <th scope="row">Envío:</th>
                   <td></td>
-                  <td></td>
-                  <td>UYU 00.00</td>
+                  
+                  <td>UYU</td>
+                  <td>00.00</td>
                 </tr>
                 <tr>
                   <th scope="row">Total:</th>
                   <td></td>
+                  <td>UYU</td>
                   <td></td>
-                  <td>$</td>
                 </tr>
               </tbody>
             </table>

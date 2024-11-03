@@ -15,11 +15,9 @@ fetch("https://japceibal.github.io/emercado-api/products/" + llamarIdProducto + 
     .then((data) => {
       // Mostrar la información del producto en la página
       document.getElementById("product-name").textContent = data.name;
-      document.getElementById("product-description").textContent =
-        data.description;
-      document.getElementById(
-        "product-price"
-      ).textContent = `${data.currency} ${data.cost}`;
+      document.getElementById("product-description").textContent = data.description;
+      document.getElementById("product-currency").textContent = data.currency;
+      document.getElementById("product-price").textContent = `${data.cost}`;
       document.getElementById("product-category").textContent = data.category;
 
       // Mostrar las imágenes del producto
@@ -190,6 +188,7 @@ function agregaralcarrito() {
   let productoseleccionado = {
     id: localStorage.getItem("prodID"),
     name: document.getElementById("product-name").textContent,
+    currency: document.getElementById('product-currency').textContent,
     price: document.getElementById("product-price").textContent,
     image: document.getElementById("product-images").children.item(0).src,
     quantity: 1
