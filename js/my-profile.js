@@ -1,20 +1,29 @@
 document.addEventListener('DOMContentLoaded', ()=> {
-/* Visulizando email al momento de entrar a Mi Perfil */
+  // Constantes globales y carga de datos
+  
   const Email = document.getElementById('email');
   Email.value = localStorage.getItem('user');
 
+  const nombre = document.getElementById('nombre');
+  nombre.value = localStorage.getItem('nombre');
+
+  const segundoNombre = document.getElementById('segundoNombre');
+  segundoNombre.value = localStorage.getItem('segundoNombre');
+
+  const apellido = document.getElementById('apellido');
+  apellido.value = localStorage.getItem('apellido');
+
+  const segundoApellido = document.getElementById('segundoApellido');
+  segundoApellido.value = localStorage.getItem('segundoApellido');
+
+  const telefono = document.getElementById('telefono').value;
+  telefono.value = localStorage.getItem('telefono');
+
+  const imgFotoPerfil = document.getElementById('imgFotoPerfil'); 
+  imgFotoPerfil.src = localStorage.getItem('fotoPerfil');
 
 /* Guardando los datos del formulario en Local Storage */
   function guardadoDatos() {
-
-  const nombre = document.getElementById('nombre').value;
-  const segundoNombre = document.getElementById('segundoNombre').value;
-  const apellido = document.getElementById('apellido').value;
-  const segundoApellido = document.getElementById('segundoApellido').value;
-  const email = document.getElementById('email').value;
-  const telefono = document.getElementById('telefono').value;
-
-
   if (nombre) {
     localStorage.setItem('nombre', nombre);
   }
@@ -44,22 +53,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
         form.addEventListener('submit', function (event) {
+          event.preventDefault() // Detiene que la página se recargue.
           if (!form.checkValidity()) {
-            event.preventDefault()
             event.stopPropagation()
-          }else{
-          guardadoDatos()
+            }
+            guardadoDatos() // Guarda los datos ingresados en el formulario
 
-          }
-  
           form.classList.add('was-validated')
         }, false)
       })
-  })()
-
-
-
-
+  })
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////
