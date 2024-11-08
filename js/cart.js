@@ -1,3 +1,45 @@
+function badge() {
+  const contador = document.getElementById("contador");
+  const cont = document.getElementById("cont");
+
+  // Obtenemos los productos guardados en localStorage
+  const CantObjetos = JSON.parse(localStorage.getItem("compras")) || [];
+
+  // Variable para almacenar la suma total de las cantidades de productos
+  let totalCantidad = 0;
+
+  // Recorremos los productos en CantObjetos y sumamos las cantidades desde los inputs
+  CantObjetos.forEach((element, index) => {
+    const inputCantidad = document.getElementById(`inputCantidad-${index}`);
+    
+    // Si el inputCantidad existe, lo usamos para obtener la cantidad
+    if (inputCantidad) {
+      let nuevaCantidad = parseInt(inputCantidad.value) || 0;  // Tomamos la cantidad tal cual
+      if (nuevaCantidad > 0) {
+        totalCantidad += nuevaCantidad; // Sumamos la nueva cantidad al total
+      }
+    }
+  });
+
+  // Actualizamos el contador en el DOM
+  contador.innerHTML = totalCantidad;
+
+  // Mostrar u ocultar el contador dependiendo de si hay productos o la cantidad total es 0
+  if (CantObjetos.length === 0 || totalCantidad === 0) {
+    contador.style.display = 'none';
+    cont.style.display = 'none';
+  } else {
+    contador.style.display = 'block';
+    cont.style.display = 'block';
+  }
+}
+
+// Llamamos a badge() para actualizar el contador al cargar la página y después de cada cambio
+document.addEventListener("DOMContentLoaded", () => {
+  cargarproductos();
+  badge(); // Llamamos a badge cuando la página se carga
+});
+
 function cargarproductos() {
   // Paso el array de compras a objeto JS
   const comprasGuardadas = JSON.parse(localStorage.getItem("compras"));
@@ -27,15 +69,8 @@ function cargarproductos() {
           </thead>
           <tbody>
     `;
-
-  
     let contenidoDeCarrito = "";
     comprasGuardadas.forEach((element, index) => {
-
-  // Conversion
-  if (element.currency === 'USD') {
-    element.price = element.price * 42,50
-  }
       contenidoDeCarrito += `
         <tr class="nombresTabla">
           <td><img src="${element.image}" class="img-thumbnail img-fluid imagenProductoComprado">${element.name}</td>
@@ -50,12 +85,7 @@ function cargarproductos() {
     });
 
     // Cerramos la tabla y agregamos el contenido de checkout
-    const finalDeTabla = `
-        </tbody>
-        </table> 
-      </div>
-      <div class="box"></div>
-    `;
+    const finalDeTabla = `</tbody></table></div><div class="box"></div>`;
     const checkout = `
       <div class="container" id="checkout">
         <div class="card border-success" style="width: 26rem; height:auto;">
@@ -64,14 +94,13 @@ function cargarproductos() {
               <tbody>
                 <tr>
                   <th scope="row">Subtotal:</th>
-                  <td></td> 
+                  <td></td>
                   <td>UYU</td>
-                  <td id="subtotalGen" ></td>
+                  <td id="subtotalGen"></td>
                 </tr>
                 <tr>
                   <th scope="row">Envío:</th>
                   <td></td>
-                  
                   <td>UYU</td>
                   <td>00.00</td>
                 </tr>
@@ -89,20 +118,22 @@ function cargarproductos() {
       </div>
     `;
 
-    // Insertar toda la estructura en el DOM
+    // Insertar la estructura en el DOM
     tabladecompras.innerHTML = headDeTabla + contenidoDeCarrito + finalDeTabla + checkout;
 
-// Función para actualizar el subtotal general
-function actualizarSubtotalGeneral() {
-  let subtotalGeneral = 0;
-  comprasGuardadas.forEach((element, index) => {
-    const inputCantidad = document.getElementById(`inputCantidad-${index}`);
-    const nuevaCantidad = parseInt(inputCantidad.value) || 0;
-    subtotalGeneral += element.price * nuevaCantidad;
-  });
-     // Mostrar el subtotal general en el campo con id subtotalGen
-     document.getElementById("subtotalGen").textContent = subtotalGeneral;
+    // Función para actualizar el subtotal general
+    function actualizarSubtotalGeneral() {
+      let subtotalGeneral = 0;
+      comprasGuardadas.forEach((element, index) => {
+        const inputCantidad = document.getElementById(`inputCantidad-${index}`);
+        const nuevaCantidad = parseInt(inputCantidad.value) || 0;
+        subtotalGeneral += element.price * nuevaCantidad;
+      });
+      // Mostrar el subtotal general en el campo con id subtotalGen
+      document.getElementById("subtotalGen").textContent = subtotalGeneral;
     }
+
+    actualizarSubtotalGeneral();
 
     // Agregar evento para actualizar subtotal al cambiar cantidad
     comprasGuardadas.forEach((element, index) => {
@@ -111,39 +142,27 @@ function actualizarSubtotalGeneral() {
 
       inputCantidad.addEventListener('input', () => {
         // Forzamos el valor a ser un número, y si es NaN (por campo vacío), asumimos 0
-        const nuevaCantidad = parseInt(inputCantidad.value) || 0;
+        const nuevaCantidad = parseInt(inputCantidad.value) || 0; // Sin restar 1
         const nuevoSubtotal = element.price * nuevaCantidad;
 
         // Actualizamos el subtotal mostrado en la tabla
         subTotal.textContent = nuevoSubtotal;
-         // Llamar a la función para actualizar el subtotal general
-         actualizarSubtotalGeneral();
+
+        // Llamamos a la función para actualizar el subtotal general
+        actualizarSubtotalGeneral();
+
+        // Llamamos a badge() para actualizar el contador
+        badge();
       });
     });
-      // Función para eliminar un producto del carrito
-      window.eliminar = function(posicion) {
-        const comprasGuardadas = JSON.parse(localStorage.getItem("compras"));
-        comprasGuardadas.splice(posicion, 1);
-        localStorage.setItem("compras", JSON.stringify(comprasGuardadas));
-        cargarproductos(); // Recargar los productos para reflejar el cambio
-      };
-      
-     // Inicializar el subtotal general al cargar la página
-     actualizarSubtotalGeneral();
+
+    // Función para eliminar un producto del carrito
+    window.eliminar = function(posicion) {
+      const comprasGuardadas = JSON.parse(localStorage.getItem("compras"));
+      comprasGuardadas.splice(posicion, 1); // Eliminamos el producto
+      localStorage.setItem("compras", JSON.stringify(comprasGuardadas));
+      cargarproductos(); // Recargamos los productos para reflejar el cambio
+      badge(); // Actualizamos el contador
+    };
   }
 }
-
-document.addEventListener("DOMContentLoaded", cargarproductos);
-
-const contador = document.getElementById("contador");
-const cont = document.getElementById("cont");
-
-const comprasGuardadas = JSON.parse(localStorage.getItem("compras")) || [];
-contador.innerHTML = comprasGuardadas.length;
-
-if (comprasGuardadas.length === 0) {
-  contador.style.display = 'none';
-  cont.style.display = 'none';
-}
-
-
