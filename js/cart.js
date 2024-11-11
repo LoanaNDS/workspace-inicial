@@ -88,7 +88,145 @@ function cargarproductos() {
     const finalDeTabla = `</tbody></table></div><div class="box"></div>`;
     const checkout = `
       <div class="container" id="checkout">
-        <div class="card border-success" style="width: 26rem; height:auto;">
+        <div class="card border-success" style="width:26rem; height:auto;">
+        <div>
+        <div class="btn-group d-flex col-9 mx-auto mt-3 justify-content-center" role="group" aria-label="Basic outlined example">
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#direccion">
+  <i class="bi bi-house-add" style="font-size: 1.50rem;"></i><br>Dirección de envío
+</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#envio">
+    <i class="bi bi-truck" style="font-size: 1.50rem;"></i><br>Tipo de envío
+</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#metodoDePago">
+  <i class="bi bi-cash-stack"style="font-size: 1.50rem;"></i><br>Forma de pago 
+</button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="direccion" tabindex="-1" aria-labelledby="direccion" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="direccionLabel">A donde enviamos tu compra?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+        <div class="col-md-6">
+    <label for="inputLocalidad" class="form-label">Departamento:</label>
+    <input type="text" class="form-control" id="inputLocalidad" placeholder="ej: Montevideo">
+  </div>
+  <div class="col-md-6">
+    <label for="inputDepartamento" class="form-label">Localidad:</label>
+    <input type="text" class="form-control" id="inputDepartamento" placeholder="ej: Tres Cruces">
+  </div>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Dirección:</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Calle principal 1234">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Esquina:</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="">
+  </div>
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Notas:</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+</div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="envio" tabindex="-1" aria-labelledby="envio" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="envioLabel">Métodos de envío:</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="form-check">
+  <input class="form-check-input" type="radio" name="tipoDeEnvio" id="premium">
+  <label class="form-check-label" for="premium">
+    Premium 2 a 5 días (15%)
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="tipoDeEnvio" id="express">
+  <label class="form-check-label" for="express">
+    Express 5 a 8 días (7%)
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="tipoDeEnvio" id="standard">
+  <label class="form-check-label" for="standard">
+    Standard 12 a 15 días (5%)
+  </label>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="metodoDePago" tabindex="-1" aria-labelledby="metodoDePago" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="metodoDePagoLabel">Elige como pagar:</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check">
+  <input class="form-check-input" type="radio" name="metodoDePago" id="credito">
+  <label class="form-check-label" for="credito">
+    Tarjeta de crédito
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="metodoDePago" id="debito">
+  <label class="form-check-label" for="debito">
+    Tarjeta de debito
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="metodoDePago" id="transferencia">
+  <label class="form-check-label" for="transferencia">
+    Transferencia Bancaria
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="metodoDePago" id="efectivo">
+  <label class="form-check-label" for="efectivo">  
+Efectivo en redes de cobranza
+  </label>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
           <div class="card-body">
             <table class="table">
               <tbody>
@@ -112,7 +250,7 @@ function cargarproductos() {
                 </tr>
               </tbody>
             </table>
-            <button class="btn btn-success" id="RealizarCompra">Finalizar Compra</button>
+            <button class="btn btn-success justify-content-center" id="RealizarCompra">Finalizar Compra</button>
           </div>
         </div>
       </div>
