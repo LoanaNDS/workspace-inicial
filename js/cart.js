@@ -140,7 +140,6 @@ function cargarproductos() {
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-success">Guardar cambios</button>
       </div>
     </div>
@@ -177,7 +176,6 @@ function cargarproductos() {
 </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-success">Guardar cambios</button>
       </div>
     </div>
@@ -220,7 +218,6 @@ Efectivo en redes de cobranza
 </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-success">Guardar cambios</button>
       </div>
     </div>
