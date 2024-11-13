@@ -253,7 +253,7 @@ a.custom-card:hover {
 .btn {
   display: block;
   width: auto; /* el ancho del botón */
-  max-width: 200px; /* ancho máximo */
+  /* max-width: 200px; ancho máximo */
   margin: 10px auto; /* Centra el botón  */
 }
 
