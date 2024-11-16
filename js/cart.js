@@ -11,7 +11,7 @@ function badge() {
   // Recorremos los productos en CantObjetos y sumamos las cantidades desde los inputs
   CantObjetos.forEach((element, index) => {
     const inputCantidad = document.getElementById(`inputCantidad-${index}`);
-    
+
     // Si el inputCantidad existe, lo usamos para obtener la cantidad
     if (inputCantidad) {
       let nuevaCantidad = parseInt(inputCantidad.value) || 0;  // Tomamos la cantidad tal cual
@@ -176,7 +176,7 @@ function cargarproductos() {
 </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Guardar cambios</button>
+        <button type="submit" class="btn btn-success" id="guardarcambiosEnvio">Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -231,19 +231,19 @@ Efectivo en redes de cobranza
                   <th scope="row">Subtotal:</th>
                   <td></td>
                   <td>UYU</td>
-                  <td id="subtotalGen"></td>
+                  <td id="subtotalGen" class="campoDinero"></td>
                 </tr>
                 <tr>
                   <th scope="row">Envío:</th>
                   <td></td>
                   <td>UYU</td>
-                  <td>00.00</td>
+                  <td id="costoEnvio" class="campoDinero"></td>
                 </tr>
                 <tr>
                   <th scope="row">Total:</th>
                   <td></td>
                   <td>UYU</td>
-                  <td></td>
+                  <td id="total" class="campoDinero"></td>
                 </tr>
               </tbody>
             </table>
@@ -256,19 +256,55 @@ Efectivo en redes de cobranza
     // Insertar la estructura en el DOM
     tabladecompras.innerHTML = headDeTabla + contenidoDeCarrito + finalDeTabla + checkout;
 
-    // Función para actualizar el subtotal general
-    function actualizarSubtotalGeneral() {
-      let subtotalGeneral = 0;
+
+    // Función para calcular el costo de envío y el total según el tipo de envío seleccionado
+    function calcularCostoEnvioYTotal() {
+      let subtotal = 0;
       comprasGuardadas.forEach((element, index) => {
         const inputCantidad = document.getElementById(`inputCantidad-${index}`);
         const nuevaCantidad = parseInt(inputCantidad.value) || 0;
-        subtotalGeneral += element.price * nuevaCantidad;
+        subtotal += element.price * nuevaCantidad;
       });
       // Mostrar el subtotal general en el campo con id subtotalGen
-      document.getElementById("subtotalGen").textContent = subtotalGeneral;
+      document.getElementById("subtotalGen").textContent = subtotal;
+
+      const costoEnvioElement = document.getElementById("costoEnvio");
+      if (!costoEnvioElement) {
+        console.error("El elemento con ID envio no existe en el DOM");
+      }
+      const totalElement = document.getElementById("total");
+
+      // Tipo de envío y porcentaje asociado
+      const opcionPremium = document.getElementById("premium");
+      const opcionExpress = document.getElementById("express");
+      const opcionStandard = document.getElementById("standard");
+
+      let costoEnvio = 0;
+
+      if (opcionPremium.checked) {
+        costoEnvio = subtotal * 0.15;
+      } else if (opcionExpress.checked) {
+        costoEnvio = subtotal * 0.07;
+      } else if (opcionStandard.checked) {
+        costoEnvio = subtotal * 0.05;
+      } else {
+        costoEnvio = 0; // O asigna un valor predeterminado
+      }
+
+      // Mostrar el costo de envío en el DOM
+      costoEnvioElement.innerHTML = parseInt(costoEnvio);
+
+      // Calcular y mostrar el total
+      const total = subtotal + costoEnvio;
+      totalElement.textContent = parseInt(total);
     }
 
-    actualizarSubtotalGeneral();
+    // Agregar evento al botón "Guardar cambios" en el modal de envío
+    document
+      .getElementById("guardarcambiosEnvio")
+      .addEventListener("click", () => { calcularCostoEnvioYTotal();});
+
+      calcularCostoEnvioYTotal();
 
     // Agregar evento para actualizar subtotal al cambiar cantidad
     comprasGuardadas.forEach((element, index) => {
@@ -284,7 +320,7 @@ Efectivo en redes de cobranza
         subTotal.textContent = nuevoSubtotal;
 
         // Llamamos a la función para actualizar el subtotal general
-        actualizarSubtotalGeneral();
+        calcularCostoEnvioYTotal();
 
         // Llamamos a badge() para actualizar el contador
         badge();

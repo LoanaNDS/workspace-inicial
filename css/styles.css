@@ -418,6 +418,10 @@ textarea {
  text-align: center;
 }
 
+.campoDinero{
+  text-align: right;
+}
+
 button#botonEnviar {
   background-color: #4CAF50;
   color: white;
