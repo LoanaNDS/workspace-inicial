@@ -71,6 +71,13 @@ function cargarproductos() {
     `;
     let contenidoDeCarrito = "";
     comprasGuardadas.forEach((element, index) => {
+      
+         
+       //Conversion
+    if(element.currency === 'USD'){
+      element.price = element.price * 42.50
+    }
+    
       contenidoDeCarrito += `
         <tr class="nombresTabla">
           <td><img src="${element.image}" class="img-thumbnail img-fluid imagenProductoComprado">${element.name}</td>
