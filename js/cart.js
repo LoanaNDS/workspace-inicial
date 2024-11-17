@@ -34,6 +34,46 @@ function badge() {
   }
 }
 
+function finalizarCompra() {
+  // Validar campos de dirección
+  const localidad = document.getElementById("inputLocalidad").value.trim();
+  const departamento = document.getElementById("inputDepartamento").value.trim();
+  const direccion = document.getElementById("inputAddress").value.trim();
+
+  if (!localidad || !departamento || !direccion) {
+    alert("Por favor, completa todos los campos de dirección.");
+    return;
+  }
+
+  // Validar forma de envío seleccionada
+  const envioSeleccionado = document.querySelector('input[name="tipoDeEnvio"]:checked');
+  if (!envioSeleccionado) {
+    alert("Por favor, selecciona una forma de envío.");
+    return;
+  }
+
+  // Validar cantidad de productos
+  const comprasGuardadas = JSON.parse(localStorage.getItem("compras")) || [];
+  for (let i = 0; i < comprasGuardadas.length; i++) {
+    const inputCantidad = document.getElementById(`inputCantidad-${i}`);
+    const cantidad = parseInt(inputCantidad.value, 10) || 0;
+    if (cantidad <= 0) {
+      alert("Cada producto debe tener una cantidad mayor a 0.");
+      return;
+    }
+  }
+
+  // Validar forma de pago seleccionada
+  const pagoSeleccionado = document.querySelector('input[name="metodoDePago"]:checked');
+  if (!pagoSeleccionado) {
+    alert("Por favor, selecciona una forma de pago.");
+    return;
+  }
+
+  // Mostrar mensaje de éxito ficticio
+  alert("¡Compra realizada con éxito!");
+}
+
 // Llamamos a badge() para actualizar el contador al cargar la página y después de cada cambio
 document.addEventListener("DOMContentLoaded", () => {
   cargarproductos();
@@ -254,7 +294,7 @@ Efectivo en redes de cobranza
                 </tr>
               </tbody>
             </table>
-            <button class="btn btn-success justify-content-center" id="RealizarCompra">Finalizar Compra</button>
+            <button class="btn btn-success justify-content-center" id="RealizarCompra" onclick="finalizarCompra()">Finalizar Compra</button>
           </div>
         </div>
       </div>
@@ -331,6 +371,9 @@ Efectivo en redes de cobranza
 
         // Llamamos a badge() para actualizar el contador
         badge();
+
+        // Llamamos a la funcion finalizar compra
+        finalizarCompra();
       });
     });
 
