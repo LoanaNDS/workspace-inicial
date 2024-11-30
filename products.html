@@ -43,14 +43,53 @@
 
   <main class="pb-5 container">
 
-<button class="boton" id="botonAscendente">-$</button><button class="boton" id="botonDescendente">+$</button><button class="boton" id="botonRelevancia">Relevante</button>
-
-<div>
-  <input class="campoTexto" id="inputPrecio"  type="text">
-  <input class="campoTexto"  id="inputPrecio2" type="text">
-  <button class="boton" id="botonFiltro">Filtrar</button>
-  <button class="boton" id="limpieza">Borrar</button>
+<!-- Funcion de filtrado y ordenamiento de productos -->
+<div class="divFO">
+  <button class="boton" id="botonAscendente"> 
+    <span class="transition"></span>
+    <span class="gradient"></span>
+    <span class="label">-$</span>
+  </button>
+  <button class="boton" id="botonDescendente">
+    <span class="transition"></span>
+    <span class="gradient"></span>
+    <span class="label">+$</span>
+    </button>
+  <button class="boton" id="botonRelevancia">
+    <span class="transition"></span>
+    <span class="gradient"></span>
+    <span class="label">Relevante</span>
+  </button>
+  
+    <!-- /* From Uiverse.io by Satwinder04 */  -->
+     
+      <div class="input-container">
+        <input type="text" id="input" required="">
+        <label for="input" class="label"></label>
+        <div class="underline"></div>
+      </div>
+      <!-- From Uiverse.io by Satwinder04  -->
+      <div class="input-container">
+        <input type="text" id="input" required="">
+        <label for="input" class="label"></label>
+        <div class="underline"></div>
+      </div>
+     
+     <button type="button" class="boton" id="botonFiltro">
+      <span class="transition"></span>
+      <span class="gradient"></span>
+      <span class="label">Filtrar</span>
+    </button>
+    <button type="button" class="boton" id="limpieza">
+      <span class="transition"></span>
+    <span class="gradient"></span>
+    <span class="label">Borrar</span>
+    </button>
 </div>
+
+
+<!-- Aqui termina funcion filtrado y ordenamiento de productos -->
+
       <section id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center" style="padding-top: 40px;">
         <!-- Aquí se mostrarán los productos -->
       </section>

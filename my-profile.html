@@ -13,7 +13,6 @@
     />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="js\nav-bar.js"></script>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -33,7 +32,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <nav class="navbar navbar-expand-lg p-1">
       <div class="container">
         <button
           class="navbar-toggler"
@@ -65,9 +64,9 @@
     <main>
 
       <!-- Perfil de Usuario -->
-      <div class="container mt-5">
+      <div  class="container mt-5">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body"  id="darkcontent">
             <h2 class="card-title mb-4">Perfil de Usuario</h2>
 
             <form id="perfildeusuario" class="needs-validation" novalidate>
@@ -75,12 +74,6 @@
                 <div class="col-md-6">
                   <label for="nombre" class="form-label">Nombre*</label>
                   <input type="text" class="form-control" id="nombre" required/>
-                 <!--  <div class="valid-feedback">
-                    Correcto
-                  </div>
-                  <div class="inavlid-feedback">
-                    Por favor, completa el campo nombre.
-                  </div> -->
                 </div>
                 <div class="col-md-6">
                   <label for="segundoNombre" class="form-label">Segundo nombre</label>
@@ -93,12 +86,6 @@
                 <div class="col-md-6">
                   <label for="apellido" class="form-label">Apellido*</label>
                   <input type="text" id="apellido" class="form-control"required>
-                  <!-- <div class="valid-feedback">
-                    Correcto
-                  </div>
-                  <div class="inavlid-feedback">
-                    Por favor, completa el campo apellido.
-                  </div> -->
                 </div>
 
                 <div class="col-md-6">
@@ -109,12 +96,6 @@
                 <div class="mb-3">
                   <label for="email" class="form-label">E-mail*</label>
                   <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                  <!-- <div class="valid-feedback">
-                  Correcto
-                </div>
-                <div class="inavlid-feedback">
-                  Por favor, completa el campo e-mail.
-                </div> -->
                 </div>
 
                 <div class="mb-3">
@@ -132,8 +113,8 @@
 
                 </div>
                 <label class="ui-switch">
-                  <input type="checkbox">
-                  <div class="slider">
+                  <input type="checkbox" id="inputSwitch">
+                  <div class="slider" id="UIdarkmode">
                     <div class="circle"></div>
                   </div>
                 </label>
@@ -164,5 +145,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/my-profile.js"></script>
+    <script src="js\nav-bar.js"></script>
   </body>
 </html>

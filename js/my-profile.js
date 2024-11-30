@@ -22,6 +22,28 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const imgFotoPerfil = document.getElementById('imgFotoPerfil'); 
   imgFotoPerfil.src = localStorage.getItem('fotoPerfil');
 
+ // UI Switch
+const inputSwitch = document.getElementById('inputSwitch');
+const navbar = document.querySelector('.navbar'); // Seleccionamos el elemento navbar
+const div = document.getElementById('darkcontent'); // Seleccionamos el div adicional
+
+inputSwitch.addEventListener('change', () => {
+  if (!document.body.classList.contains('dark')) {
+    // Modo oscuro activado
+    document.body.classList.add('dark');
+    navbar.classList.add('dark_'); // Clase específica para la navbar
+    div.classList.add('dark');
+  } else {
+    // Modo oscuro desactivado
+    document.body.classList.remove('dark');
+    navbar.classList.remove('dark_'); // Clase específica para la navbar
+    div.classList.remove('dark');
+  }
+});
+
+
+
+
 /* Guardando los datos del formulario en Local Storage */
   function guardadoDatos() {
   if (nombre) {
@@ -64,6 +86,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
       })
   })
 })
+
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // Manejar cambio de foto de perfil
